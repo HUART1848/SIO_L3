@@ -1,0 +1,64 @@
+% My standard header for TeX.SX answers:
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+
+\geometry{margin=2cm}
+
+\title{SIO - Travail pratique 3}
+\date{Janvier 2024}
+\author{Farouk Ferchichi \& Hugo Huart}
+
+\begin{document}
+\maketitle
+
+\section{Variables de décision et fonction objectif}
+
+Afin de déterminer l'appartenance d'un objet à un groupe,
+on utilise des variables binaires de décision $g_{ij}$ où $i=1,\dots,n \text{ et } j=1,\dots,m$
+avec $n$ objets et $m$ groupes et où
+
+\[
+    g_{ij} =
+    \begin{cases}
+    1 \text{ si l'objet } i \text{ est dans le groupe } j  \\
+    0 \text{ sinon}
+    \end{cases}
+\]
+%
+En connaissant les valeurs des objets données par $v_i$, où $v_i$ est la valeur de l'objet $i$, on
+peut déterminer la valeur d'un groupe $j$ avec
+
+\[
+    \text{Valeur du groupe } j = \sum_{i=1}^{n}g_{ij} \cdot v_i
+\]
+%
+À partir de cette information et du critère d'équité retenu ici consistant à maximiser
+la plus petite valeur totale attribuée à un groupe, on établir la fonction objectif suivante:
+
+\[
+    \max z = \min_{j} \sum_{i=1}^{n}g_{ij} \cdot v_i
+\]
+%
+où $z$ est la plus grande valeur possible de la plus petite valeur attribuée à un groupe.
+Cette fonction n'étant pas linéaire en l'état, on la linéarise à l'aide d'une
+variable auxilliaire $t$. On remplace la somme minimale avec $t$ dans la fonction objectif, ce qui
+donne
+
+\[
+    \max z = t
+\]
+%
+Dans les contraintes, on va garantir que $t$ est plus petit ou égal à la plus petite valeur
+attribuée à un groupe.
+
+\section{Contraintes}
+
+\begin{align}
+    \tag{1} LOL \\
+    \tag{2} MDR
+\end{align}
+
+\end{document}
