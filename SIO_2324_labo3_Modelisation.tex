@@ -9,7 +9,7 @@
 
 \title{SIO - Travail pratique 3}
 \date{Janvier 2024}
-\author{Farouk Ferchichi \& Hugo Huart}
+\author{Hugo Huart \& Farouk Ferchichi}
 
 \begin{document}
 \maketitle
@@ -17,8 +17,8 @@
 \section{Variables de décision et fonction objectif}
 
 Afin de déterminer l'appartenance d'un objet à un groupe,
-on utilise des variables binaires de décision $g_{ij}$ où $i=1,\dots,n \text{ et } j=1,\dots,m$
-avec $n$ objets et $m$ groupes et où
+on utilise des variables binaires de décision $g_{ij}$ où $i=1,\ldots,n \text{ et } j=1,\ldots,m$
+pour $n$ objets et $m$ groupes et où
 
 \[
     g_{ij} =
@@ -36,7 +36,7 @@ peut déterminer la valeur d'un groupe $j$ avec
 \]
 %
 À partir de cette information et du critère d'équité retenu ici consistant à maximiser
-la plus petite valeur totale attribuée à un groupe, on établir la fonction objectif suivante:
+la plus petite valeur totale attribuée à un groupe, on peut établir la fonction objectif suivante
 
 \[
     \max z = \min_{j} \sum_{i=1}^{n}g_{ij} \cdot v_i
@@ -52,13 +52,24 @@ donne
 \]
 %
 Dans les contraintes, on va garantir que $t$ est plus petit ou égal à la plus petite valeur
-attribuée à un groupe.
+attribuée à un groupe afin d'obtenir un résultat équivalent.
 
+\pagebreak
 \section{Contraintes}
 
-\begin{align}
-    \tag{1} LOL \\
-    \tag{2} MDR
-\end{align}
+On a un premier groupe de $m$ contraintes garantissant que $t$ est plus petit ou égal à la plus petite
+valeur attribuée à un groupe
+
+\[
+    \tag{1} t \leq  \sum_{i = 1}^{n}{v_i \cdot g_{ij}} \text{,} \; \forall j = 1,\ldots,m
+\]
+%
+On a également $n$ contraintes garantissant qu'un objet doit être attribué à exactement un seul
+groupe. Ceci empêche d'avoir un objet attribué à plusieurs groupes ou d'avoir un
+objet ne faisant partie d'aucun groupe
+
+\[
+    \tag{2} \sum_{j=1}^{m}{g_{ij} = 1} \text{,} \; \forall i = 1,\ldots,n
+\]
 
 \end{document}
